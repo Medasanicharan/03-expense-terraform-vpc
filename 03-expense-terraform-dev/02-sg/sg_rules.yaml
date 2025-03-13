@@ -55,7 +55,7 @@
     port: 22
   
   ansible: 
-   - name: ansible_public
+  - name: ansible_public
     desc: ansible accepting connectoions from public
     source: public
     port: 22

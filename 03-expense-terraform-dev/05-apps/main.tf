@@ -3,7 +3,7 @@ module "backend" {
 
   name = "${var.project_name}-${var.environment}-backend"
 
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [data.aws_ssm_parameter.backend_sg_id.value]
   subnet_id              = local.private_subnet_id
   ami = data.aws_ami.ami_info.id
@@ -22,7 +22,7 @@ module "frontend" {
 
   name = "${var.project_name}-${var.environment}-frontend"
 
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [data.aws_ssm_parameter.frontend_sg_id.value]
   subnet_id              = local.public_subnet_id
   ami = data.aws_ami.ami_info.id
@@ -40,7 +40,7 @@ module "ansible" {
 
   name = "${var.project_name}-${var.environment}-ansible"
 
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [data.aws_ssm_parameter.ansible_sg_id.value]
   subnet_id              = local.public_subnet_id
   user_data = file("expense.sh")
